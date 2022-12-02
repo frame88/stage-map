@@ -1,0 +1,37 @@
+<ion-app>
+  <ion-split-pane contentId="main-content" [disabled]="!auth.isLogged()">
+    <ion-menu contentId="main-content" color="tertiary" type="overlay">
+      <ion-content>
+        <ion-list lines="none" >
+          <ion-list-header>
+            <ion-label>
+              Ionic Chat
+            </ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root"  lines="none" detail="false" routerLinkActive="selected" class="online-users">
+              <ion-avatar slot="start">
+                <img alt="Silhouette of a person's head" src="https://i.pravatar.cc/300" />
+              </ion-avatar>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-item class="user-info">
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://i.pravatar.cc/300" />
+        </ion-avatar>
+        <div class=>
+
+          <ion-label >{{auth.userData.nome}} {{auth.userData.cognome}}</ion-label>
+          <a href="mailto:{{ auth.userData.email }}">{{auth.userData.email}}</a>
+        </div>
+        <small slot="end" (click)="auth.logout()">Esci</small>
+
+      </ion-item>
+
+    </ion-menu>
+    <ion-router-outlet  id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
