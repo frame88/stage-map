@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'nuovapagina',
     loadChildren: () => import('./nuovapagina/nuovapagina.module').then( m => m.NuovapaginaPageModule)
   },
+  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  },
 ];
 
 @NgModule({
